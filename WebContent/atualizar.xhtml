@@ -13,19 +13,19 @@
 	<h:form id="frm">
 		<h:panelGrid columns="2">
 			<h:outputLabel value="Nome:" for="nome"/>
-			<h:inputText id="nome" value="#{ProdutoBean.produto.nome}"/> 
+			<h:inputText id="nome" value="#{produtoBean.produto.nome}"/> 
 			
 			<h:outputLabel value="Preco:" for="preco"/>
-			<h:inputText id="preco" value="#{ProdutoBean.produto.preco}"/>
+			<h:inputText id="preco" value="#{produtoBean.produto.preco}"/>
 			
 			<h:outputLabel value="Quantidade:" for="quantidade"/>
-			<h:inputText id="quantidade" value="#{ProdutoBean.produto.quantidade}"/>
+			<h:inputText id="quantidade" value="#{produtoBean.produto.quantidade}"/>
 			
 			<h:outputLabel value="Descricao:" for="descricao"/>
-			<h:inputText id="descricao" value="#{ProdutoBean.produto.descricao}"/>
+			<h:inputText id="descricao" value="#{produtoBean.produto.descricao}"/>
 				
 			<h:outputLabel/>
-			<h:commandButton value="Atualizar" action="#{usuarioBean.atualizar}"/>
+			<h:commandButton value="Atualizar" action="#{produtoBean.atualizar}"/>
 		</h:panelGrid>
 	</h:form>
 </h:body>
