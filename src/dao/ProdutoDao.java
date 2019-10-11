@@ -38,7 +38,7 @@ public class ProdutoDao {
 	
 	public List<Produto> listar(){
 		List<Produto> produtos = null;
-		String jpql = "SELECT p FROM produto p";
+		String jpql = "SELECT p FROM Produto p";
 		EntityManager em = ConnectionFactory.getEntityManager();
 		TypedQuery<Produto> query = em.createQuery(jpql, Produto.class);
 		produtos = query.getResultList();

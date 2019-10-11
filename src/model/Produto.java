@@ -18,7 +18,7 @@ public class Produto implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private double preco;
+	private int preco;
 	private int quantidade;
 	private String descricao;
 
@@ -26,7 +26,7 @@ public class Produto implements Serializable {
 
 	}
 
-	public Produto(String nome, double preco, int quantidade, String descricao) {
+	public Produto(String nome, int preco, int quantidade, String descricao) {
 		super();
 		this.nome = nome;
 		this.preco = preco;
@@ -50,11 +50,11 @@ public class Produto implements Serializable {
 		this.nome = nome;
 	}
 
-	public Double getPreco() {
+	public int getPreco() {
 		return preco;
 	}
 
-	public void setPreco(double preco) {
+	public void setPreco(int preco) {
 		this.preco = preco;
 	}
 
@@ -73,4 +73,12 @@ public class Produto implements Serializable {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+
+	@Override
+	public String toString() {
+		return "Produto [id=" + id + ", nome=" + nome + ", preco=" + preco + ", quantidade=" + quantidade
+				+ ", descricao=" + descricao + "]";
+	}
+	
+	
 }

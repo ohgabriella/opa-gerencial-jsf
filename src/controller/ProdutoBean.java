@@ -12,12 +12,11 @@ import model.Produto;
 @ManagedBean
 @ApplicationScoped
 public class ProdutoBean {
-	
+
 	private Produto produto = new Produto();
-	private ProdutoDao produtoDao= new ProdutoDao();
+	private ProdutoDao produtoDao = new ProdutoDao();
 	private List<Produto> produtos = new ArrayList<Produto>();
-	
-	
+
 	public Produto getProduto() {
 		return produto;
 	}
@@ -34,40 +33,48 @@ public class ProdutoBean {
 		this.produtos = produtos;
 	}
 
-	public String cadastrarUsuarioRedirect() {
-		return "listar.xhtml";
-	}
-	
 	public void salvarProduto() {
-		if(produto.getId() == null) {
+		if (produto.getId() == null) {
 			produtoDao.salvar(produto);
-			produto = null;
 			System.out.println("produto salvo " + produto);
-			
-		}else {
+			produto = null;
+		} else {
 			produtoDao.atualizar(produto);
+			listarProduto();
 		}
 	}
-	
+
 	public void removerProduto(Long id) {
 		System.out.println(id);
 		produtoDao.remover(id);
 	}
-	
-	public void atualizarProduto() {
+
+	public void atualizar() {
 		produtoDao.atualizar(produto);
-		System.out.println("produto atualizado " + produto);
+		//listarProduto();
+	}
+	
+	public Produto pesquisarPorId(Long id) {
+		System.out.println(produtoDao.buscar(id));
+		return produtoDao.buscar(id);
+	}
+
+	public String atualizarProduto(Long id) {
+		this.produto = pesquisarPorId(id);
+		return "atualizar";
 	}
 	
 	public Produto buscarProduto(Long id) {
 		System.out.println(produtoDao.buscar(id));
 		return produtoDao.buscar(id);
 	}
-	
-	public List<Produto> listarProduto(){
+
+	public List<Produto> listarProduto() {
 		produtos = produtoDao.listar();
 		return produtos;
 	}
-	
 
+	public String encaminha() {
+		return "produtos";
+	}
 }
