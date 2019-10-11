@@ -38,9 +38,6 @@ public class ProdutoBean {
 			produtoDao.salvar(produto);
 			System.out.println("produto salvo " + produto);
 			produto = null;
-		} else {
-			produtoDao.atualizar(produto);
-			listarProduto();
 		}
 	}
 
@@ -49,9 +46,9 @@ public class ProdutoBean {
 		produtoDao.remover(id);
 	}
 
-	public void atualizar() {
+	public String atualizar() {
 		produtoDao.atualizar(produto);
-		//listarProduto();
+		return "produtos";
 	}
 	
 	public Produto pesquisarPorId(Long id) {
@@ -75,6 +72,7 @@ public class ProdutoBean {
 	}
 
 	public String encaminha() {
+		System.out.println("encaminhado");
 		return "produtos";
 	}
 }
